@@ -97,6 +97,7 @@ public class Formatters {
                 new NormalizeUnicodeFormatter(),
                 new ReplaceUnicodeLigaturesFormatter(),
                 new UnprotectTermsFormatter()
+                //new UnabbreviateFormatter() decide on name
         );
     }
 
