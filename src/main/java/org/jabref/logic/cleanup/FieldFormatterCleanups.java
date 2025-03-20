@@ -62,9 +62,11 @@ public class FieldFormatterCleanups {
                 new FieldFormatterCleanup(StandardField.PAGES, new NormalizePagesFormatter()),
                 new FieldFormatterCleanup(StandardField.DATE, new NormalizeDateFormatter()),
                 new FieldFormatterCleanup(StandardField.MONTH, new NormalizeMonthFormatter()),
-                new FieldFormatterCleanup(InternalField.INTERNAL_ALL_TEXT_FIELDS_FIELD, new ReplaceUnicodeLigaturesFormatter()));
-                //new FieldFormatterCleanup(StandardField.JOURNAL, new [UNABBREVIATE FORMATTER/ACTION])
-                //new FieldFormatterCleanup(StandardField.JOURNALTITLE, new [UNABBREVIATE FORMATTER/ACTION])
+                new FieldFormatterCleanup(InternalField.INTERNAL_ALL_TEXT_FIELDS_FIELD, new ReplaceUnicodeLigaturesFormatter()),
+                new FieldFormatterCleanup(StandardField.JOURNAL, new NormalizePagesFormatter()), // REMEMBER THAT THESE WILL NEED TO HAVE THE UNABBREVIATE OPTION
+                new FieldFormatterCleanup(StandardField.JOURNALTITLE, new NormalizePagesFormatter()) //remember the commas and semicolons :^)
+        );
+
 
         List<FieldFormatterCleanup> recommendedBibtexFormatters = new ArrayList<>(DEFAULT_SAVE_ACTIONS);
         recommendedBibtexFormatters.addAll(List.of(
